@@ -1,0 +1,51 @@
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease infinite;
+}
+
+/* Fade + Lift */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+.animate-fadeUp {
+  animation: fadeUp 1s ease forwards;
+}
+
+/* Zoom In + Fade */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-zoomIn {
+  animation: zoomIn 0.9s ease forwards;
+}
+
+/* Floating effect */
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.floating-box {
+  animation: floating 6s ease-in-out infinite;
+}
