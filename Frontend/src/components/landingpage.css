@@ -6,6 +6,17 @@
   animation: gradientShift 8s ease infinite;
 }
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:wght@100..800&family=Baloo+2:wght@400..800&family=Momo+Trust+Display&family=Blaka+Hollow&display=swap');
 
 
@@ -86,7 +97,7 @@
 .animate_border {
   background: linear-gradient(45deg, #ff0000, #0fff0f, #007bff, #fff200);
   background-size: 400% 400%;
-  animation: flow 4s linear infinite;
+  animation: flow 8s linear infinite;
   border-radius: 9999px;
   /* ensures wrapper is round */
 }

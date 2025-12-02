@@ -3,5 +3,19 @@
     background-size: 400% 400%;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    animation: gradientShift 4s ease-in infinite;
+    animation: gradientShift 8s ease-in infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
