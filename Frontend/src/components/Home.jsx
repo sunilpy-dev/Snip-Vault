@@ -10,7 +10,8 @@ import { useContext } from 'react';
 import { loggedInContext } from '../context/context';
 
 //changed 
-import {Trash,Pencil,Copy,Expand} from "lucide-react";
+import { Trash, Pencil, Copy, Expand } from "lucide-react";
+import DeleteComponent from './DeleteComponent';
 
 // define "lord-icon" custom element with default properties
 defineElement(lottie.loadAnimation);
@@ -34,6 +35,11 @@ function Home() {
     const [expand, setexpand] = useState(false)
     const [codeDetails, setcodeDetails] = useState({})
     const [end, setend] = useState(5)
+
+    //for delete
+    const [openDelete, setopenDelete] = useState(false);
+    const [deleteId, setdeleteId] = useState(null);
+
 
     const blurHappend = useRef()
     async function fetchData() {
@@ -64,7 +70,7 @@ function Home() {
     useEffect(() => {
         fetchData()
     }, [value.email, value.loggedIn])
-    
+
 
 
 
@@ -245,42 +251,81 @@ function Home() {
         }
 
     }
-    const handleDelet = async (id) => {
-        let cnf = confirm("Do you really want to delete this code data?")
-        if (cnf) {
-            let del = await fetch('http://localhost:3000/', { method: "DELETE", credentials: "include", headers: { "content-type": "application/json" }, body: JSON.stringify({ id }) })
-            let result = await del.json()
-            await new Promise(resolve => setTimeout(resolve, 100));
-            if (result.Success == true) {
-                setdetails(details.filter(item => item.id !== id))
-                // window.scrollTo({ top: 0, behavior: 'smooth' });
-                toast.success('Code details deleted successfuly', {
-                    position: "top-right",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-            } else {
-                // window.scrollTo({ top: 0, behavior: 'smooth' });
-                toast.error(`${result.Result}`, {
-                    position: "top-right",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-            }
-        }
-        else {
-            // window.scrollTo({ top: 0, behavior: 'smooth' });
-            toast.error('Code details not deleted', {
+
+
+    // const handleDelet = async (id) => {
+    //     let cnf = confirm("Do you really want to delete this code data?")
+    //     setdeleteId(id);
+    //     setopenDelete(true);
+    //     if (cnf) {
+    //         let del = await fetch('http://localhost:3000/', { method: "DELETE", credentials: "include", headers: { "content-type": "application/json" }, body: JSON.stringify({ id }) })
+    //         let result = await del.json()
+    //         await new Promise(resolve => setTimeout(resolve, 100));
+    //         if (result.Success == true) {
+    //             setdetails(details.filter(item => item.id !== id))
+    //             // window.scrollTo({ top: 0, behavior: 'smooth' });
+    //             toast.success('Code details deleted successfuly', {
+    //                 position: "top-right",
+    //                 autoClose: 2000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: false,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "dark",
+    //             });
+    //         } else {
+    //             // window.scrollTo({ top: 0, behavior: 'smooth' });
+    //             toast.error(`${result.Result}`, {
+    //                 position: "top-right",
+    //                 autoClose: 2000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: false,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "dark",
+    //             });
+    //         }
+    //     }
+    //     else {
+    //         // window.scrollTo({ top: 0, behavior: 'smooth' });
+    //         toast.error('Code details not deleted', {
+    //             position: "top-right",
+    //             autoClose: 2000,
+    //             hideProgressBar: false,
+    //             closeOnClick: true,
+    //             pauseOnHover: false,
+    //             draggable: true,
+    //             progress: undefined,
+    //             theme: "dark",
+    //         });
+
+    //     }
+    // }
+
+    const handleDelet = (id) => {
+        setdeleteId(id);
+        setopenDelete(true);
+    };
+
+    const confirmDelete = async () => {
+
+        let del = await fetch('http://localhost:3000/', {
+            method: "DELETE",
+            credentials: "include",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ id: deleteId })
+        });
+
+        let result = await del.json();
+
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        if (result.Success === true) {
+            setdetails(details.filter(item => item.id !== deleteId));
+
+            toast.success('Code details deleted successfully', {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -291,8 +336,38 @@ function Home() {
                 theme: "dark",
             });
 
+        } else {
+            toast.error(`${result.Result}`, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
-    }
+
+        setopenDelete(false);
+    };
+
+    const cancelDelete = () => {
+
+        toast.error('Code details not deleted', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+
+        setopenDelete(false);
+    };
+
     const handleExpand = async (id) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         // let res = await fetch('http://localhost:3000/findone', { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id }) })
@@ -326,7 +401,7 @@ function Home() {
 
     useEffect(() => {
 
-        if (details.length -end >=3) {
+        if (details.length - end >= 3) {
             setShowMoredis(false)
         } else { setShowMoredis(true) }
 
@@ -345,7 +420,7 @@ function Home() {
     }, [end, details.length]);
     const handleShowMore = () => {
         // console.log('Show more')
-        if (details.length -end >=3) {
+        if (details.length - end >= 3) {
             setShowMoredis(false)
             setend(end + 3)
         } else { setShowMoredis(true) }
@@ -477,7 +552,7 @@ function Home() {
                                         </td>
                                         <td className='w-1/4 sm:w-1/5 sm:hidden text-center border border-white p-2 text-[10px] sm:text-lg font-semibold flex justify-center items-center gap-1 sm:gap-2 max-h-[45px] h-[45px]'>
                                             <Trash title='Delete' onClick={() => { handleDelet(item.id) }} className=' w-1/3 h-4  sm:h-7 sm:w-10 cursor-pointer' />/
-                                            <Pencil  title='Edit' onClick={() => { handleEdit(item.id) }} className='w-1/3 h-4 sm:h-6 sm:w-10 cursor-pointer' />/<Expand title='Expand to view Details' onClick={() => { handleExpand(item.id) }} className='w-1/3 h-4 sm:h-6 sm:w-10 cursor-pointer' />
+                                            <Pencil title='Edit' onClick={() => { handleEdit(item.id) }} className='w-1/3 h-4 sm:h-6 sm:w-10 cursor-pointer' />/<Expand title='Expand to view Details' onClick={() => { handleExpand(item.id) }} className='w-1/3 h-4 sm:h-6 sm:w-10 cursor-pointer' />
 
                                         </td>
                                     </tr>
@@ -522,6 +597,16 @@ function Home() {
                     </div>
 
                 }
+                <DeleteComponent
+                    open={openDelete}
+                    title="Delete Code Snippet?"
+                    message="Are you sure you want to delete this snippet? This action cannot be undone."
+                    confirmText="Delete"
+                    cancelText="Cancel"
+                    onConfirm={confirmDelete}
+                    onCancel={cancelDelete}
+                />
+
             </div>
 
         </>
