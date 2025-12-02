@@ -14,7 +14,7 @@ const About = () => {
               <NavLink to='/login' className="px-1.5 text-white text-xs md:text-sm font-medium leading-6">Get Started</NavLink>
             </button>
           </div>
-          <img className="lg:mx-0 mx-auto h-[90%] sm:h-[90%] md:h-[80%] lg:h-[90%] xl:h-full rounded-3xl md:object-contain sm:object-contain object-cover w-full" src="/images/brand.webp?v=2" alt="about Us image" />
+          <img className="lg:mx-0 mx-auto h-[90%] sm:h-[90%] md:h-[80%] lg:h-[90%] xl:h-full rounded-3xl md:object-contain sm:object-contain object-cover w-full" src="/images/brand.png" alt="about Us image" />
         </div>
       </div>
     </section>

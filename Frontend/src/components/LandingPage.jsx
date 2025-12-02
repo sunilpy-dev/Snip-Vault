@@ -24,7 +24,7 @@ const LandingPage = () => {
             <p className='text-2xl sm:text-3xl md:text-xl lg:text-3xl 2xl:text-3xl font-mono font-bold  w-full flex flex-row xl:flex-col items-center xl:items-start justify-center sm:justify-start gap-3 xl:gap-0'>Welcome to <span className="text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl baloo-2 font-semibold xl:w-full brand_text">Snip-Vault</span></p>
             <p className='text-sm sm:text-base lg:text-lg xl:text-xl momo-trust-display-regular py-2 px-5 sm:px-0 sm:py-0'>Snip-Vault is your personal cloud for code snippets. Save your code once, log in from any device, and get instant access whenever you need it , no more lost snippets or scattered files.</p>
           </div>
-          <div className="image m-auto w-[60%] sm:w-[70%] md:w-[50%] lg:w-[35%] xl:w-[35%] 2xl:w-[30%] h-[10%] sm:h-[40%] "><img className='h-full w-full' fetchPriority='high' src="/images/user.jpg?v=2" alt="main_image" /></div>
+          <div className="image m-auto w-[60%] sm:w-[70%] md:w-[50%] lg:w-[35%] xl:w-[35%] 2xl:w-[30%] h-[10%] sm:h-[40%] "><img className='h-full w-full' fetchPriority='high' src="/images/user.jpg" alt="main_image" /></div>
         </div>
 
         <div className="tagLine text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold font-serif mx-auto text-center w-full mt-20 sm:mt-10  ">Multilanguage Saving</div>
@@ -66,7 +66,7 @@ const LandingPage = () => {
 
         <div className="m-auto p-2 sm:p-10 lg:p-2 xl:p-10 w-[80%] md:w-[90%] lg:w-[90%] xl:w-[90%] 2xl:w-[80%] flex flex-col md:flex-row justify-between items-center ">
           <div className=' w-[90%] sm:w-[90%] md:w-[45%] lg:w-[45%] xl:w-[45%] h-[50%] md:h-[45%] lg:h-[50%] xl:h-[45%] relative'>
-            <img className='h-full w-full' src="/images/Heading.jpg?v=2" alt="second_heading" />
+            <img className='h-full w-full' src="/images/Heading.jpg" alt="second_heading" />
             <div className="absolute top-0 right-0 autoRotate">
               <div className="animate_border rounded-full p-[4px] sm:p-[6px]">
                 <div className="bg-white text-black w-14 sm:w-16 md:w-14 lg:w-16 xl:w-20 h-14 sm:h-16 md:h-14 lg:h-16 xl:h-20 p-0 sm:p-4 rounded-full font-bold md:font-semibold lg:font-bold text-xs sm:text-sm md:text-sm lg:text-base xl:text-xl flex flex-col text-center justify-center items-center">

@@ -55,7 +55,7 @@ const Navbar_Landing = () => {
       /> */}
       <div className='hidden w-[95vw] mb-3 md:flex justify-between items-center'>
         <div className="logo flex justify-center items-center gap-2 w-[20%] sm:w-[21%] md:w-[25%] lg:w-[30%] ">
-          <img src="/images/logo.webp?v=2?v=2" alt="logo" className='h-7 md:h-8 lg:h-9 xl:h-10 3xl:h-16 invert ' />
+          <img src="/images/logo.png" alt="logo" className='h-7 md:h-8 lg:h-9 xl:h-10 3xl:h-16 invert ' />
           <div className='w-full text-base sm:text-lg md:text-2xl xl:text-3xl 3xl:text-5xl font-bold cursor-pointer'><NavLink to='/'> Snip-Vault</NavLink></div>
         </div>
         <ul className='flex justify-end items-center px-2 sm:px-3 h-[5vh] w-[60%] md:w-[60%] lg:w-[60%] xl:w-[60%] 3xl:w-[80%] gap-6 md:gap-5 lg:gap-10  '>
@@ -69,7 +69,7 @@ const Navbar_Landing = () => {
 
       <div className='flex w-[100%] md:hidden justify-between items-center bg-black h-[30px] mb-3'>
         <div className="logo flex justify-center items-center gap-2 w-[60%] ">
-          <img src="/images/logo.webp" alt="logo" className='h-7 invert ' />
+          <img src="/images/logo.png" alt="logo" className='h-7 invert ' />
           <div className='w-full text-base sm:text-lg font-bold cursor-pointer'><NavLink to='/'> Snip-Vault</NavLink></div>
         </div>
         <div onClick={handleOpen} className="hamburger w-[10%]">

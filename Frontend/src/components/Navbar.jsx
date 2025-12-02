@@ -129,7 +129,7 @@ const Navbar = () => {
       /> */}
       <div className='hidden w-[95vw] mb-3 sm:flex justify-between items-center'>
         <div className="logo flex justify-center items-center gap-2 w-[20%] md:w-[19%] ">
-          <img src="/images/logo.webp?v=2" alt="logo" className='h-7 md:h-8 lg:h-9 xl:h-10 3xl:h-16 invert ' />
+          <img src="/images/logo.png" alt="logo" className='h-7 md:h-8 lg:h-9 xl:h-10 3xl:h-16 invert ' />
           <div className='w-full text-base md:text-lg lg:text-2xl xl:text-3xl 3xl:text-5xl font-bold cursor-pointer'><NavLink to='/home'> Snip-Vault</NavLink></div>
         </div>
         <ul className='flex justify-center items-center h-[5vh] w-[60%] md:w-[60%] lg:w-[60%] xl:w-[60%] 3xl:w-[80%] gap-6 md:gap-5 lg:gap-10  '>
@@ -200,7 +200,7 @@ const Navbar = () => {
 
       <div className='flex w-[100%] sm:hidden justify-between items-center bg-black h-[30px] mb-3'>
         <div className="logo flex justify-center items-center gap-2 w-[60%] ">
-          <img src="/images/logo.webp?v=2" alt="logo" className='h-7 invert ' />
+          <img src="/images/logo.png" alt="logo" className='h-7 invert ' />
           <div className='w-full text-base font-bold cursor-pointer'><NavLink to='/home'> Snip-Vault</NavLink></div>
         </div>
         <div onClick={handleOpen} className="hamburger w-[10%]">

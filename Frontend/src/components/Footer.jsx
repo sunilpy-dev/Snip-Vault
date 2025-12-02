@@ -28,7 +28,7 @@ const Footer = () => {
                 </div>
                 <div className="main_content flex justify-center items-center flex-col w-full md:w-full lg:w-3/5 h-1/2 sm:h-full  ">
                     <div className="logo flex justify-center items-center gap-2  ">
-                        <img src="/images/logo.webp?v=2" alt="logo" className='h-7 md:h-6 lg:h-8 xl:h-10 invert cursor-pointer' />
+                        <img src="/images/logo.png" alt="logo" className='h-7 md:h-6 lg:h-8 xl:h-10 invert cursor-pointer' />
                         <div className='w-full text-xl md:text-xl lg:text-2xl xl:text-3xl font-bold cursor-pointer flex justify-center items-center'>Snip-Vault</div>
                     </div>
                     <div className="info">
@@ -44,7 +44,7 @@ const Footer = () => {
             <div className='flex sm:hidden flex-col justify-center items-center w-full h-[30vh]'>
                 <div className="main_content flex justify-center items-center flex-col w-full h-1/2">
                     <div className="logo flex justify-center items-center gap-2  ">
-                        <img  src="/images/logo.webp?v=2" alt="logo" className='h-5 invert cursor-pointer' />
+                        <img  src="/images/logo.png" alt="logo" className='h-5 invert cursor-pointer' />
                         <div className='w-full text-lg font-semibold cursor-pointer flex justify-center items-center'>Snip-Vault</div>
                     </div>
                     <div className="info flex justify-center items-center flex-col w-full">
